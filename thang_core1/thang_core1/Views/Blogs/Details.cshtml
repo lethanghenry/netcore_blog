@@ -1,0 +1,60 @@
+﻿@model thang_core1.Models.Blog
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.loai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.loai)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.trangThai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.trangThai)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.viTri)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.viTri)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.motangan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.motangan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.chitiet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.chitiet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ngayPublic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ngayPublic)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

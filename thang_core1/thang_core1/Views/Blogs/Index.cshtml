@@ -1,0 +1,122 @@
+﻿@model IEnumerable<thang_core1.Models.Blog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .edt {
+        border: 1px solid green;
+    }
+
+    .del {
+        border: 1px solid red;
+    }
+
+    .text {
+        color: green;
+        text-decoration: none;
+    }
+
+    .text2 {
+        color: red;
+        text-decoration: none;
+    }
+    .card-header {
+        background: #CCCCCC;
+        height: 40px;
+    }
+    .card-footer {
+        background: #CCCCCC;
+    }
+    .card {
+       margin-left: 20px;
+        margin-right: 20px;
+        background: white;
+        margin-top:20px;
+    }
+    .cach {
+        margin-bottom: 20px;
+    }
+    .search{
+        color:green;
+        border-color:green;
+        background:white;
+    }
+</style>
+
+<div class="card">
+    <div class="card-header  d-flex align-items-center">
+        <h4>List Blog</h4>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(Model=>Model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tin)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loai)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.trangThai)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.viTri)
+                    </th>                   
+                    <th>
+                        @Html.DisplayNameFor(model => model.ngayPublic)
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem=>item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loai)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.trangThai)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.viTri)
+                        </td>                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ngayPublic)
+                        </td>
+                        <td>
+                            <button class="edt">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "text" })
+                            </button>
+                        </td>
+                        <td>
+                            <button class="del">
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "text2" })
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div>

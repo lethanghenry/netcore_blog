@@ -1,0 +1,147 @@
+﻿@model thang_core1.Models.Blog
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .card-header {
+        background: #CCCCCC;
+        height: 40px;
+    }
+
+    .card-footer {
+        background: #CCCCCC;
+    }
+
+    .card {
+        margin-left: 20px;
+        margin-right: 20px;
+        background: white;
+        margin-top:20px;
+    }
+    .form-control {
+        max-width: 100%;
+    }
+    .form-group {
+        max-width: 100%;
+    }
+
+</style>
+<div class="card">
+    <div class="card-header  d-flex align-items-center">
+        <h4>Create</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="tin" class="control-label">Tiêu Đề</label>
+                        <input asp-for="tin" class="form-control" />
+                        <span asp-validation-for="tin" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="motangan" class="control-label">Mô Tả Ngắn</label>
+                        <textarea asp-for="motangan" type="text" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="motangan" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="chitiet" class="control-label">Chi Tiết</label>
+                        <textarea asp-for="chitiet" type="text" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="chitiet" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hình ảnh</label>
+                        <button>Chọn Tệp</button>
+                        <label>
+                            Không có tệp nào được chọn
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="trangThai" class="control-label">Public</label>
+                        <input asp-for="trangThai" class="form-control" />
+                        <span asp-validation-for="trangThai" class="text-danger"></span>
+                    </div>
+ 
+                <div class="form-group col-md-12">                 
+                    <div class="row">
+                        <label>Vị Trí</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="checkbox" name="viTri" value="Việt Nam">Việt Nam
+                        </div>
+
+                        <div class="col-md-2">
+                            <input type="checkbox" name="viTri" value="Châu Á">Châu Á
+                        </div>
+
+                        <div class="col-md-2">
+                            <input type="checkbox" name="viTri" value="Châu Âu">Châu Âu
+                        </div>
+
+                        <div class="col-md-2">
+                            <input type="checkbox" name="viTri" value="Châu Mỹ">Châu Mỹ
+                        </div>
+
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                         
+                            <div class="form-group">
+                                <label asp-for="loai" class="control-label">Loại</label>
+                                @{ List<SelectListItem> listItems = new List<SelectListItem>();
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "Kinh Doanh",
+                                        Value = "Kinh Doanh"
+                                    });
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "Thế Giới",
+                                        Value = "Thế Giới",
+                                        Selected = true
+                                    });
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "Thời Sự",
+                                        Value = "Thời Sự"
+                                    });
+                                }
+                                @Html.DropDownListFor(model => model.loai, listItems, "-- Select Status --", new { @class = "form-control" })                              
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="ngayPublic" class="control-label">Ngày Public</label>
+                                <input asp-for="ngayPublic" class="form-control" />
+                                <span asp-validation-for="ngayPublic" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex align-items-center justify-content-center">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
